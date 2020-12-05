@@ -437,7 +437,8 @@ def migrate_unique_id(hass: HomeAssistantType):
         registry.async_update_entity(entity.entity_id, new_unique_id=uid)
 
 
-RE_JSON = re.compile(b'msg:(.+) length:(\d+) bytes$')
+# new miio adds colors to logs
+RE_JSON = re.compile(b'msg:(.+) length:(\d+) bytes')
 
 
 def extract_jsons(raw) -> List[bytes]:
